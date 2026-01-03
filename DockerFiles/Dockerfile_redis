@@ -1,7 +1,6 @@
-# pin image version by using sha256
 FROM redis:latest as build
 
-FROM gcr.io/distroless/static-debian13:nonroot
+FROM gcr.io/distroless/base-debian13:nonroot
 
 COPY --from=build /lib/x86_64-linux-gnu/libm.so.6 /lib/x86_64-linux-gnu/libm.so.6
 COPY --from=build /lib/x86_64-linux-gnu/libc.so.6 /lib/x86_64-linux-gnu/libc.so.6
